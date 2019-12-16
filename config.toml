@@ -24,7 +24,7 @@ theme = "hello-friend-ng"
   
   [[params.social]]
     name = "twitter"
-    url  = "https://twitter.com/"
+    url  = "https://twitter.com/nicolaschaulet"
 
   [[params.social]]
     name = "github"
@@ -32,26 +32,27 @@ theme = "hello-friend-ng"
 
   [[params.social]]
     name = "linkedin"
-    url  = "https://www.linkedin.com/in/danvalencia"
+    url  = "https://www.linkedin.com/in/nicolas-chaulet-ab293146"
 
 [languages]
   [languages.en]
     title = "Nicolas Chaulet"
-    subtitle = "A simple theme for Hugo"
+    subtitle = ""
     keywords = ""
     copyright = ""
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "hello friend ng"
+      logoText = "P-labs"
       logoHomeLink = "/"
     # or
     #
     # path = "/img/your-example-logo.svg"
     # alt = "Your example logo alt text"
 
-  # And you can even create generic menu
+  # And you can even create generic menu 
   [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/posts"
+    identifier = "publications"
+    name       = "Publications"
+    url        = "publications/"
+    
