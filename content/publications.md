@@ -4,6 +4,11 @@ title = "Publications"
   name = "Nicolas Chaulet"
 +++
 
+### In the news
+[HELIX RE anounces Enhanced Cloud Technology](https://www.prnewswire.com/news-releases/helix-re-announces-enhanced-cloud-technology-300941682.html?tc=eml_cleartime)
+
+### Scientific publications
+
 #### 2015
 F. Cakoni, N. Chaulet, H. Haddar: [Asymptotic analysis of the transmission eigenvalue problem for a Dirichlet obstacle coated by a thin layer of non-absorbing media](https://arxiv.org/abs/1312.1481), IMA Journal of Applied Mathematics
 
