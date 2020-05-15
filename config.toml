@@ -44,7 +44,7 @@ theme = "hello-friend-ng"
 
     [languages.en.params.logo]
       logoText = "P-labs"
-      logoHomeLink = "/"
+      logoHomeLink = "principialabs.co.uk"
 
   # And you can even create generic menu 
   [[menu.main]]
