@@ -10,6 +10,8 @@ title = "Publications"
 ### Scientific publications
 
 #### 2015
+N. Chaulet, H. Haddar: [Electromagnetic inverse shape problem for coated obstacles](https://hal.inria.fr/hal-01110003/document), Advances in Computational Mathematics
+
 F. Cakoni, N. Chaulet, H. Haddar: [Asymptotic analysis of the transmission eigenvalue problem for a Dirichlet obstacle coated by a thin layer of non-absorbing media](https://arxiv.org/abs/1312.1481), IMA Journal of Applied Mathematics
 
 #### 2014
