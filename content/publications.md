@@ -4,10 +4,10 @@ title = "Publications"
   name = "Nicolas Chaulet"
 +++
 
-### In the news
-[HELIX RE anounces Enhanced Cloud Technology](https://www.prnewswire.com/news-releases/helix-re-announces-enhanced-cloud-technology-300941682.html?tc=eml_cleartime)
-
 ### Scientific publications
+
+#### 2020
+T. Chaton, N. Chaulet, S. Horache, L. Landrieu: [Torch-Points3D: A Modular Multi-Task Framework for Reproducible Deep Learning on 3D Point Clouds](https://arxiv.org/abs/2010.04642), International Conference on 3D Vision (3DV)
 
 #### 2015
 N. Chaulet, H. Haddar: [Electromagnetic inverse shape problem for coated obstacles](https://hal.inria.fr/hal-01110003/document), Advances in Computational Mathematics

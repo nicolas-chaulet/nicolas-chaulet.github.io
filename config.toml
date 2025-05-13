@@ -1,6 +1,10 @@
 baseurl = "/"
-languageCode = "en-us"
-theme = "hello-friend-ng"
+theme = "paper"
+title = "Nicolas Chaulet"
+baseURL = "https://nicolas-chaulet.github.io/"
+languageCode = "en"
+DefaultContentLanguage = "en"
+autoSwitchAppearance = false 
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -16,48 +20,16 @@ theme = "hello-friend-ng"
   keywords = "homepage, blog, science, informatics, development, programming"
   images = [""]
 
-  # Directory name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
-
-  # Default theme "light" or "dark"
-  defaultTheme = "light"
-  
-  [[params.social]]
-    name = "twitter"
-    url  = "https://twitter.com/nicolaschaulet"
-
-  [[params.social]]
-    name = "github"
-    url  = "https://github.com/nicolas-chaulet"
-
-  [[params.social]]
-    name = "linkedin"
-    url  = "https://www.linkedin.com/in/nicolas-chaulet-ab293146"
-
-[languages]
-  [languages.en]
-    title = "Nicolas Chaulet"
-    subtitle = ""
-    keywords = ""
-    copyright = ""
-    readOtherPosts = "Read other posts"
-
-    [languages.en.params.logo]
-      logoText = "P-labs"
-      logoHomeLink = "https://principialabs.co.uk"
+  linkedin="nicolas-chaulet-ab293146"
+  github="nicolas-chaulet"
 
   # And you can even create generic menu 
   [[menu.main]]
-    identifier = "home"
-    name       = "Home"
-    url        = "/"
-
-  [[menu.main]]
     identifier = "publications"
     name       = "Publications"
-    url        = "publications/"
+    url        = "/publications/"
   
   [[menu.main]]
     identifier = "about"
     name       = "About"
-    url        = "about/"
+    url        = "/about/"
