@@ -2,7 +2,7 @@
 author = "Nicolas Chaulet"
 title = "AI powered research and Lila Sciences"
 date = "2025-05-12"
-description = "My thoughts and opinions about Lila Sciences and some of the challenges around AI powered scientific research."
+description = "My thoughts about Lila Sciences and some of the opportunities and challenges around AI powered scientific research."
 +++
 I recently came across [Lila Sciences](https://www.linkedin.com/feed/#) and [this podcast](https://blubrry.com/fyi_podcast/144684767/how-lila-is-redefining-scientific-discovery-with-geoffrey-von-maltzahn/) from their CEO and it got me thinking about the place of AI in scientific research. About Lila Sciences, in short they are combining generative AI with an autonomous material research lab in order to accelerate material discovery with a broad range of applications from drug discovery to carbon capture technologies.
 
