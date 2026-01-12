@@ -54,7 +54,7 @@ I did some performance checking and the current stack can happily handle 10 requ
 
 ## Next steps
 
-This is obviously a very basic setup and would most likely not scale very well. One of the things I would like to explore is to replace the search with a proper tool for search such as Typesense. As a side note, they are great! I would expect such a switch to allow the search to still perform at similar speeds but it would be more scalable in terms of concurrency, more users could sue the tool at the same time. Another nice side effect is that Typesense supports semantic search out of the box enabling fuzzy matching which is actually fairly important when looking for an EPD. Finding similar products is another thing that would become fairly easy to implement.
+This is obviously a very basic setup and would most likely not scale very well. One of the things I would like to explore is to replace the search with a proper tool for search such as [Typesense](https://typesense.org/). As a side note, they are great! I would expect such a switch to allow the search to still perform at similar speeds but it would be more scalable in terms of concurrency, more users could sue the tool at the same time. Another nice side effect is that Typesense supports semantic search out of the box enabling fuzzy matching which is actually fairly important when looking for an EPD. Finding similar products is another thing that would become fairly easy to implement.
 
 ## References
 
