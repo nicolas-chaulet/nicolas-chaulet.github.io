@@ -4,6 +4,7 @@ title = "Building a wall tool for an architectural drawing app"
 date = "2025-02-27"
 description = "Taking a deep dive into the intricacies of building a tool that allows users to draw walls in a 2D architectural drawing application"
 +++
+
 **This feature was developed during my time as a CTO of Canoa.**
 
 Canoa excels at handling CAD blocks for objects and images, and we’ve recognized recently the need to also add more intuitive architectural drawing tools. I just finished developing a new tool that allows users to draw walls intuitively with Canoa. and want to share how we built it. First, let’s start with our product prompt:
@@ -26,9 +27,7 @@ One last technical constraint was that users should be able to draw the wall geo
 
 Here’s a quick demo of where the tool landed, which gets close to the objectives set out in our initial prompt:
 
-{{< video
-  src="images/output.mp4"
->}}
+{{< video src="images/output.mp4">}}
 
 A few notes about the functionality:
 
@@ -42,12 +41,12 @@ I started by treating walls as a thick polyline (which is a series of connected 
 
 ```tsx
 type Wall = {
-	geometry: Array<{
-		x:number;
-		y:number;
-	}>;
-	thickness: number;
-}
+  geometry: Array<{
+    x: number;
+    y: number;
+  }>;
+  thickness: number;
+};
 ```
 
 In that scenario, the `geometry` attribute holds the location of the center line of the wall. In order to render the wall as a polygon with an outline, I then computed the offset from that centerline on both sides.
@@ -62,9 +61,9 @@ A T-junction that does not render properly
 
 Another example of a T-junction that does not render properly
 
-At that point I tried a few tricks with layering, rendering order, polygon clipping, etc. But nothing was really working. 
+At that point I tried a few tricks with layering, rendering order, polygon clipping, etc. But nothing was really working.
 
-In addition to the rendering issue, the UX of working with those “disconnected” lines was not great. If you move one vertex of one of the walls, you still want the two wall sections to stay attached. I had to fully embrace the idea that walls are not just thick polylines, they behave more like a network of points. 
+In addition to the rendering issue, the UX of working with those “disconnected” lines was not great. If you move one vertex of one of the walls, you still want the two wall sections to stay attached. I had to fully embrace the idea that walls are not just thick polylines, they behave more like a network of points.
 
 This led me to revisit this great post about the **vector networks** in Figma might actually work: [https://alexharri.com/blog/vector-networks](https://alexharri.com/blog/vector-networks) (credit goes to Nick Schmidt for the find 🙏). And reading through this, yes it totally makes sense in many ways to treat a wall system as a network, it would certainly help with the T-junction problem highlighted above.
 
@@ -82,8 +81,8 @@ type Wall = {
     edges: Array<{
       v1: number;
       v2: number;
-      style: Record<string, any>
-    }>
+      style: Record<string, any>;
+    }>;
   };
   thickness: number;
 };
@@ -102,7 +101,7 @@ If you ignore the grey outline for a moment and focus only on the centerline, mo
 - deleting an edge involves removing that connection from the network and potentially having multiple networks as a byproduct (which is actually a nice outcome)
 - setting custom thickness for specific wall segments is as simple as setting the `style` attribute on that particular edge
 
-One key aspect remains, how can I get the wall outline (in red and green) from the centerline (in purple)? This is where vector networks helped once more, or at least the idea of thinking about this outline as a network of points with two cycles, the green one and the red one. I ended up defining a simple algorithm that traverses the wall’s centerline network and builds a new network that will store the outline of the wall. 
+One key aspect remains, how can I get the wall outline (in red and green) from the centerline (in purple)? This is where vector networks helped once more, or at least the idea of thinking about this outline as a network of points with two cycles, the green one and the red one. I ended up defining a simple algorithm that traverses the wall’s centerline network and builds a new network that will store the outline of the wall.
 
 ![Centerline of the wall and inside and outside wall representation](images/Frame_13.png)
 
@@ -115,20 +114,18 @@ In the next two sections I will outline how this algorithm works in more details
 Below are the main steps the algorithm follows:
 
 1. pick any segment
-    
-    ![First segment that the algorithm explores with its two endpoints](images/Frame_5.png)
-    
-    First segment that the algorithm explores with its two endpoints
-    
+
+   ![First segment that the algorithm explores with its two endpoints](images/Frame_5.png)
+
+   First segment that the algorithm explores with its two endpoints
+
 2. pick one end of that segment (point 1 in green above) and compute the two miter points associated with that end (more on that later)
 3. do the same with the other end (point 2 in green)
-4. this gives 4 points that can be linked together by adding the relevant edges to the outline network in purple below. 
+4. this gives 4 points that can be linked together by adding the relevant edges to the outline network in purple below.
 
-    
-    ![Network obtained after visiting the first edge](images/Frame_6.png)
-    
-    Network obtained after visiting the first edge
-    
+   ![Network obtained after visiting the first edge](images/Frame_6.png)
+
+   Network obtained after visiting the first edge
 
 Repeating that process for each edge yields the following network
 
@@ -190,7 +187,7 @@ There are things that I didn’t cover in that post but are worth paying attenti
 
 ## Conclusion
 
-Overall, the feature came out great and the network data structure was really nice to work with in that context. Easy to expand as product requirements evolved and very testable as well, things I definitely like! This is obviously an opinionated take on how users should interact with walls in an architectural drawing context but it is not the only way. For example I treated a T-junction as a new point in space as opposed  to a relative position along an existing wall which would give a more parametric interaction. 
+Overall, the feature came out great and the network data structure was really nice to work with in that context. Easy to expand as product requirements evolved and very testable as well, things I definitely like! This is obviously an opinionated take on how users should interact with walls in an architectural drawing context but it is not the only way. For example I treated a T-junction as a new point in space as opposed to a relative position along an existing wall which would give a more parametric interaction.
 
 ## References and related reading
 
